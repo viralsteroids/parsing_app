@@ -39,7 +39,6 @@ function sendText() {
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xhr.onreadystatechange = function() {
 		if (this.readyState === 4 && this.status === 200) {
-			console.log(JSON.parse(this.responseText));
 			document.getElementById('loader').classList.add("d-none");
 			document.getElementById('result').classList.remove("d-none");
 			var response = JSON.parse(this.responseText);
@@ -111,12 +110,11 @@ function sendText() {
 
 function get_resource() {
 	var xhr = new XMLHttpRequest();
-	xhr.open('GET', 'http://213.108.129.190/xml/get-temp-data', false);
-
+	xhr.open('GET', 'http://213.108.129.190/xml/get-temp-data', true);
+	xhr.onreadystatechange = function() {
+		if (this.readyState === 4 && this.status === 200) {
+			console.log(JSON.parse(this.responseText));
+		}
+	};
 	xhr.send();
-	if (xhr.status != 200) {
-		alert( xhr.status + ': ' + xhr.statusText );
-	} else {
-		console.log(JSON.parse(xhr.responseText));
-	}
 }
