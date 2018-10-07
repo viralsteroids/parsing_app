@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="form">
+    <h1 class="text-center">Input text for parse</h1>
+    <div class="form-group">
+        <textarea class="form-control"  name="text" id="text" rows="3"></textarea>
+    </div>
+    <div class="text-center">
+        <button onclick="sendText()" class="btn btn-primary">Submit</button>
+    </div>
+</div>
+<div id="loader" class="loader d-none"></div>
+<div id="result" class="d-none">
+    <div>
+        <button onclick="reSend()" class="btn btn-primary ">Resend</button>
+    </div>
+    <h1 class="text-center">Original Text</h1>
+    <div class="alert alert-success" id="original_text">
+    </div>
+    <h1 class="text-center">Result Parsing</h1>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="fio-tab" data-toggle="tab" href="#fio" role="tab" aria-controls="fio" aria-selected="true">Fio's</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="date-tab" data-toggle="tab" href="#date" role="tab" aria-controls="date" aria-selected="false">Dates</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="address-tab" data-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="false">Adresses</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="cash-tab" data-toggle="tab" href="#cash" role="tab" aria-controls="cash" aria-selected="false">Cashes</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="fio" role="tabpanel" aria-labelledby="fio-tab">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">first</th>
+                    <th scope="col">middle</th>
+                    <th scope="col">last</th>
+                </tr>
+                </thead>
+                <tbody id="t_fios">
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="date" role="tabpanel" aria-labelledby="date-tab">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">day</th>
+                    <th scope="col">month</th>
+                    <th scope="col">year</th>
+                </tr>
+                </thead>
+                <tbody id="t_dates">
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">address</th>
+                </tr>
+                </thead>
+                <tbody id="t_address">
+                </tbody>
+            </table></div>
+        <div class="tab-pane fade" id="cash" role="tabpanel" aria-labelledby="cash-tab">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">integer</th>
+                    <th scope="col">coins</th>
+                    <th scope="col">fraction</th>
+                    <th scope="col">multiplier</th>
+                    <th scope="col">currency</th>
+                </tr>
+                </thead>
+                <tbody id="t_cashes">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

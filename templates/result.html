@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block header %}
+<h1>{% block title %}Result{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div>
+    <div class="text-center">
+        <button onclick="get_resource()" class="btn btn-primary">Send request</button>
+    </div>
+</div>
+{% endblock %}
