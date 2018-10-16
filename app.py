@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # ~ Author: Pavel Nikylshin
+#sdfsdfsdfs
 import os
 from flask import Flask
 from blueprints.web import web
